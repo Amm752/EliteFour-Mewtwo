@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3d5c34">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="This is the Game Mode"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="159dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show Score"
+        android:id="@+id/Bscore"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onButtonClick2"
+        android:layout_marginLeft="272dp"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
+
+
+    <!-- This is the part for the KeyBoard-->
+    <EditText
+        android:id="@+id/edit_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Bscore"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="87dp"
+        android:textColor="#ffffff" />
+
+    <!-- End Of the KeyBoard PArt -->
+</RelativeLayout>
