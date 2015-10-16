@@ -17,6 +17,7 @@ public class StartGame extends Activity {
     EditText editInput;
     //  End Of the KeyBoard PArt
 
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
