@@ -29,7 +29,7 @@ public class StartGame extends Activity {
         ArrayList<String> words;
         int round = 1;
         int total = 10;
-        public int score=0;
+        static int score=0;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -60,15 +60,15 @@ public class StartGame extends Activity {
                 if (guess.getText().toString().equals("ENTER")) {                              //If button is in ENTER mode
 
                 if (answer.getText().toString().toLowerCase().equals(word.toLowerCase())) {     //Check if inputted guess is correct
-                ana.setText("SUCCESS");
+                ana.setText("CORRECT");
                     score+=10;
                 } else {
                 ana.setText("WRONG");
                 }
-                nextRound();                                                                    //Set button to NEXT ROUND mode
+                nextRound();                                                                  //Set button to NEXT ROUND mode
 
                 } else if (guess.getText().toString().equals("NEXT ROUND")) {                  //If button is in NEXT ROUND mode
-                resetGame();                                                                    //reset for next round
+                resetGame();                                                                 //reset for next round
 
                 } else if (guess.getText().toString().equals("SEE RESULTS")) {                  //If button is in SEE RESULTS mode
                         startActivity(new Intent(getApplicationContext(), Results.class));              //Go to results page
@@ -112,8 +112,8 @@ public class StartGame extends Activity {
                 //Reset the anagram, increment round counter, set button for entering an answer
                 round++;
                 count.setText(round + "/" + total);
-
-                ana.setText(generateAnagram(getWord()));
+                word = getWord();
+                ana.setText(generateAnagram(word));
                 answer.setText("");
                 answer.setHint("Enter answer here...");
                 guess.setText("ENTER");
