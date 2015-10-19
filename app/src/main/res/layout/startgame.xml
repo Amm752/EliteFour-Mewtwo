@@ -1,43 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#3d5c34">
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.ryan.anagram.Start"
+    android:id="@+id/R"
+    android:background="#3a8b21">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="This is the Game Mode"
-        android:id="@+id/textView"
-        android:layout_gravity="center_horizontal"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:layout_marginLeft="159dp"
+        android:text="Large Text"
+        android:id="@+id/anagram"
+        android:layout_marginTop="79dp"
+        android:textSize="100px"
+        android:textIsSelectable="false"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff" />
+    <!-- This is answer input section -->
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/answer"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:text=""
+        android:hint="Enter answer here..."/>
+    <!-- submit answer -->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Show Score"
-        android:id="@+id/Bscore"
-        android:layout_gravity="center_horizontal"
-        android:onClick="onButtonClick2"
-        android:layout_marginLeft="272dp"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
-
-
-    <!-- This is the part for the KeyBoard-->
-    <EditText
-        android:id="@+id/edit_input"
-        android:layout_width="match_parent"
+        android:text="ENTER"
+        android:id="@+id/enterGuess"
+        android:layout_below="@+id/answer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="66dp" />
+    <!-- number of attempts left -->
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Bscore"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="87dp"
-        android:textColor="#ffffff" />
-
-    <!-- End Of the KeyBoard PArt -->
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/roundCounter"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

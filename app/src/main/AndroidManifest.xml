@@ -20,7 +20,7 @@
         </activity>
         <activity android:name=".StartGame"></activity>
         <activity android:name=".Scorepage"></activity>
+        <activity android:name=".Results" ></activity>
+</application>
 
-    </application>
-
-</manifest>
+    </manifest>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <word>ahmad</word>
+    <word>Chris</word>
+    <word>Sam</word>
+
+
+</PreferenceScreen>
