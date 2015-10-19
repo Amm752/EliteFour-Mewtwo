@@ -12,7 +12,6 @@ import android.widget.TextView;
 public class Results extends Activity {
 
     TextView result;
-    StartGame gamee = new StartGame();
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +19,8 @@ public class Results extends Activity {
     setContentView(R.layout.activity_results);
        result = (TextView) findViewById(R.id.final_score);
 
-       result.setText(gamee.score + " out of 100");
+       result.setText(StartGame.score + " out of 100");
+       StartGame.score=0;
 
    }
 
