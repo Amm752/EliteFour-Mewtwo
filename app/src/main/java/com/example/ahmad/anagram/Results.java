@@ -19,7 +19,8 @@ public class Results extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_results);
        result = (TextView) findViewById(R.id.final_score);
-       result.setText(gamee.score);
+
+       result.setText(gamee.score + " out of 100");
 
    }
 
