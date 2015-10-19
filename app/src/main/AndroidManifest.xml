@@ -21,6 +21,8 @@
         <activity android:name=".StartGame"></activity>
         <activity android:name=".Scorepage"></activity>
         <activity android:name=".Results" ></activity>
-</application>
+        <activity android:name=".About" ></activity>
+
+    </application>
 
     </manifest>
