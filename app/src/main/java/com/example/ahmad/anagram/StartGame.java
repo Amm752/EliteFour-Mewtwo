@@ -75,7 +75,7 @@ public class StartGame extends Activity {
                 }
                 }
                 });
-                }
+        }
 
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {
@@ -117,7 +117,7 @@ public class StartGame extends Activity {
                 answer.setText("");
                 answer.setHint("Enter answer here...");
                 guess.setText("ENTER");
-                }
+        }
 
         private String generateAnagram(String input) {
                 //Shuffles the letters in a word to generate an anagram
