@@ -34,7 +34,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
         }
     }
-
+    public void btnabout(View v){
+        if(v.getId() == R.id.Aboutbtn){
+            Intent i = new Intent(MainActivity.this, About.class );
+            startActivity(i);
+        }
+    }
 
 
     @Override

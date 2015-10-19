@@ -20,6 +20,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+
 public class StartGame extends Activity {
         String word;
         TextView count;
@@ -57,21 +58,21 @@ public class StartGame extends Activity {
                 guess.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-                if (guess.getText().toString().equals("ENTER")) {                              //If button is in ENTER mode
+                if (guess.getText().toString().equals("ENTER")) {
 
-                if (answer.getText().toString().toLowerCase().equals(word.toLowerCase())) {     //Check if inputted guess is correct
+                if (answer.getText().toString().toLowerCase().equals(word.toLowerCase())) {
                 ana.setText("CORRECT");
-                    score+=10;
+                        score+=10;
                 } else {
-                ana.setText("WRONG");
+                ana.setText("Nooooo");
                 }
-                nextRound();                                                                  //Set button to NEXT ROUND mode
+                nextRound();
 
-                } else if (guess.getText().toString().equals("NEXT ROUND")) {                  //If button is in NEXT ROUND mode
-                resetGame();                                                                 //reset for next round
+                } else if (guess.getText().toString().equals("NEXT ROUND")) {
+                resetGame();
 
-                } else if (guess.getText().toString().equals("SEE RESULTS")) {                  //If button is in SEE RESULTS mode
-                        startActivity(new Intent(getApplicationContext(), Results.class));              //Go to results page
+                } else if (guess.getText().toString().equals("SEE RESULTS")) {
+                        startActivity(new Intent(getApplicationContext(), Results.class));
                 }
                 }
                 });
@@ -79,19 +80,15 @@ public class StartGame extends Activity {
 
         @Override
         public boolean onCreateOptionsMenu(Menu menu) {
-                // Inflate the menu; this adds items to the action bar if it is present.
                 getMenuInflater().inflate(R.menu.menu_main, menu);
                 return true;
                 }
 
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
-                // Handle action bar item clicks here. The action bar will
-                // automatically handle clicks on the Home/Up button, so long
-                // as you specify a parent activity in AndroidManifest.xml.
+
                 int id = item.getItemId();
 
-                //noinspection SimplifiableIfStatement
                 if (id == R.id.action_settings) {
                 return true;
                 }
@@ -100,7 +97,6 @@ public class StartGame extends Activity {
                 }
 
         private void nextRound() {
-                //Set text of button for going to next round
                 if(round == total) {
                 guess.setText("SEE RESULTS");
                 } else {
@@ -109,7 +105,6 @@ public class StartGame extends Activity {
                 }
 
         private void resetGame() {
-                //Reset the anagram, increment round counter, set button for entering an answer
                 round++;
                 count.setText(round + "/" + total);
                 word = getWord();
@@ -120,7 +115,6 @@ public class StartGame extends Activity {
         }
 
         private String generateAnagram(String input) {
-                //Shuffles the letters in a word to generate an anagram
                 ArrayList<Character> anagram = new ArrayList<>();
                 for(char letter:input.toLowerCase().toCharArray()) {
                 anagram.add(letter);
@@ -148,6 +142,6 @@ public class StartGame extends Activity {
                 }
 
         private String getWord() {
-                return words.get((int) Math.round(Math.random() * (words.size() - 1)));
+                return words.get((int) Math.round(Math.random() * (words.size() - 5)));
                 }
                 }

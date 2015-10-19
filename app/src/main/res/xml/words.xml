@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <word>ahmad</word>
-    <word>music</word>
-    <word>airplane</word>
-
-
-
+    <word>abdulaiz</word>
+        <word>care</word>
+        <word>name</word>
+        <word>angel</word>
+        <word>live</word>
+        <word>late</word>
+        <word>code</word>
+        <word>forest</word>
+        <word>smile</word>
+        <word>hero</word>
 
 </PreferenceScreen>
