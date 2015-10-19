@@ -22,13 +22,14 @@ import java.util.ArrayList;
 import java.util.Random;
 public class StartGame extends Activity {
         String word;
-                TextView count;
-                EditText answer;
-                TextView ana;
-                Button guess;
-                ArrayList<String> words;
-                int round = 1;
-                int total = 10;
+        TextView count;
+        EditText answer;
+        TextView ana;
+        Button guess;
+        ArrayList<String> words;
+        int round = 1;
+        int total = 10;
+        public int score=0;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class StartGame extends Activity {
 
                 if (answer.getText().toString().toLowerCase().equals(word.toLowerCase())) {     //Check if inputted guess is correct
                 ana.setText("SUCCESS");
+                    score+=10;
                 } else {
                 ana.setText("WRONG");
                 }

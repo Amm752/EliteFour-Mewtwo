@@ -6,13 +6,21 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+
 
 public class Results extends Activity {
+
+    TextView result;
+    StartGame gamee = new StartGame();
 
    @Override
    protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_results);
+       result = (TextView) findViewById(R.id.final_score);
+       result.setText(gamee.score);
+
    }
 
    public void buttonStartClicked(View v) {
