@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
+import java.util.Timer;
+import java.util.TimerTask;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -31,6 +33,7 @@ public class StartGame extends Activity {
         int round = 1;
         int total = 10;
         static int score=0;
+        boolean done = false;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -56,26 +59,28 @@ public class StartGame extends Activity {
                 ana.setTextSize(72);
 
                 guess.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-                if (guess.getText().toString().equals("ENTER")) {
+                        @Override
+                        public void onClick(View v) {
+                                if (guess.getText().toString().equals("ENTER")) {
 
-                if (answer.getText().toString().toLowerCase().equals(word.toLowerCase())) {
-                ana.setText("CORRECT");
-                        score+=10;
-                } else {
-                ana.setText("Nooooo");
-                }
-                nextRound();
+                                        if (answer.getText().toString().toLowerCase().equals(word.toLowerCase())) {
+                                                ana.setText("CORRECT");
+                                                score += 10;
+                                        } else {
+                                                ana.setText("Nooooo");
+                                        }
+                                        nextRound();
 
-                } else if (guess.getText().toString().equals("NEXT ROUND")) {
-                resetGame();
+                                } else if (guess.getText().toString().equals("NEXT ROUND")) {
+                                        resetGame();
 
-                } else if (guess.getText().toString().equals("SEE RESULTS")) {
-                        startActivity(new Intent(getApplicationContext(), Results.class));
-                }
-                }
+                                } else if (guess.getText().toString().equals("SEE RESULTS")) {
+                                        startActivity(new Intent(getApplicationContext(), Results.class));
+                                }
+                        }
                 });
+                Timer timer = new Timer(true);
+                timer.scheduleAtFixedRate(new Task(), 1000, 1000);
         }
 
         @Override
@@ -83,6 +88,12 @@ public class StartGame extends Activity {
                 getMenuInflater().inflate(R.menu.menu_main, menu);
                 return true;
                 }
+        public void btnQuit(View v){
+            if(v.getId() == R.id.Quitbtn){
+                Intent i = new Intent(StartGame.this, MainActivity.class );
+                startActivity(i);
+            }
+        }
 
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
@@ -141,7 +152,38 @@ public class StartGame extends Activity {
                 }
                 }
 
-        private String getWord() {
+                private String getWord() {
                 return words.get((int) Math.round(Math.random() * (words.size() - 5)));
                 }
+
+        class Task extends TimerTask
+        {
+                long seconds;
+                final TextView text;
+                final Runnable runnable;
+
+                public Task()
+                {
+                        super();
+                        text = (TextView)findViewById(R.id.timerText);
+                        text.setText("00:00");
+                        runnable = new Runnable()
+                        {
+                                @Override
+                                public void run()
+                                {
+                                        text.setText(String.format("%02d:%02d", ++seconds / 60,
+                                                seconds % 60));
+                                }
+                        };
                 }
+
+                @Override
+                public void run()
+                {
+                        if(!done)
+                                StartGame.this.runOnUiThread(runnable);
+                }
+        }
+}
+              

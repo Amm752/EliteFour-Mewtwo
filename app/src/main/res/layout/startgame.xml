@@ -30,6 +30,12 @@
         android:layout_centerHorizontal="true"
         android:text=""
         android:hint="Enter answer here..."/>
+
+    <TextView
+        android:id="@+id/timerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"/>
     <!-- submit answer -->
     <Button
         android:layout_width="wrap_content"
@@ -38,6 +44,17 @@
         android:id="@+id/enterGuess"
         android:layout_alignTop="@+id/answer"
         android:layout_toEndOf="@+id/answer" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quit"
+        android:id="@+id/Quitbtn"
+        android:onClick="btnQuit"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/enterGuess" />
+
     <!-- number of attempts left -->
     <TextView
         android:layout_width="wrap_content"
